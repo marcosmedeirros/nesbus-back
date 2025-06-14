@@ -1,6 +1,6 @@
 CREATE TABLE endereco (
                           id BIGSERIAL PRIMARY KEY,
-                            uuid UUID not null,
+                          uuid UUID not null,
                           cep VARCHAR(10) NOT NULL,
                           rua VARCHAR(100) NOT NULL,
                           numero INT NOT NULL,
@@ -16,6 +16,8 @@ CREATE TABLE usuario (
                          fk_id_endereco BIGINT,
                          nome VARCHAR(100) NOT NULL,
                          cpf VARCHAR(14) NOT NULL UNIQUE,
+                         telefone VARCHAR(15) NOT NULL UNIQUE,
+                         data_nascimento VARCHAR(10) NOT NULL,
                          email VARCHAR(100) NOT NULL UNIQUE,
                          senha VARCHAR(100) NOT NULL,
                          permissao VARCHAR(20),
@@ -27,5 +29,6 @@ CREATE TABLE viagem (
                          uuid UUID not null,
                          nome VARCHAR(100) NOT NULL,
                          data_viagem DATE NOT NULL,
+                         motorista VARCHAR(100) NOT NULL,
                          quantidade_vagas INT NOT NULL
 );

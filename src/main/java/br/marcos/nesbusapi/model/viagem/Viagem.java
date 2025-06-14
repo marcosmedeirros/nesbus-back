@@ -34,6 +34,8 @@ public class Viagem {
     @Column(name = "data_viagem", nullable = false)
     private Date dataviagem;
 
+    @Column(name = "motorista")
+    private String motorista;
 
     @Column(name = "quantidade_vagas")
     @Min(value = 1, message = "A quantidade deve ser maior que 0")

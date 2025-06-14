@@ -34,6 +34,12 @@ public class Usuario {
     @Column(name = "cpf")
     private String cpf;
 
+    @Column(name = "telefone")
+    private String telefone;
+
+    @Column(name = "datanasc")
+    private String dataNascimento;
+
     @Column(name = "email")
     @Email
     private String email;
