@@ -1,38 +1,31 @@
 package br.marcos.nesbusapi.model;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.hibernate.annotations.UuidGenerator;
-
-import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "endereco")
-@Entity
+@AllArgsConstructor
 @ToString
+@Entity
+@Table(name = "endereco")
 public class Endereco {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @UuidGenerator
-    private UUID uuid;
+    @NotBlank
+    @Column(name = "logradouro")
+    private String logradouro;
 
     @NotBlank
-    @Column(name = "cep")
-    private String cep;
-
-    @NotBlank
-    @Column(name = "rua")
-    private String rua;
-
     @Column(name = "numero")
-    private int numero;
+    private String numero;
+
+    @Column(name = "complemento")
+    private String complemento;
 
     @NotBlank
     @Column(name = "bairro")
@@ -46,6 +39,9 @@ public class Endereco {
     @Column(name = "estado")
     private String estado;
 
-
+    @NotBlank
+    @Column(name = "cep")
+    private String cep;
 
 }
+

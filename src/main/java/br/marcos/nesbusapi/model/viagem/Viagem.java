@@ -7,17 +7,16 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-
-@Table(name = "viagem")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
+@Entity
+@Table(name = "viagem")
 public class Viagem {
 
     @Id
@@ -27,18 +26,49 @@ public class Viagem {
     @UuidGenerator
     private UUID uuid;
 
-    @Column(name = "nome", nullable = false)
     @NotBlank
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "data_viagem", nullable = false)
-    private Date dataviagem;
+    @NotNull
+    @Column(name = "data_viagem")
+    private LocalDate dataViagem;
 
+    @NotBlank
     @Column(name = "motorista")
     private String motorista;
 
+    @Min(value = 1, message = "A quantidade de vagas deve ser maior que 0")
     @Column(name = "quantidade_vagas")
-    @Min(value = 1, message = "A quantidade deve ser maior que 0")
-    private int quantidadevagas;
+    private int quantidadeVagas;
 
+    @Column(name = "origem")
+    private String origem;
+
+    @Column(name = "destino")
+    private String destino;
+
+    @Column(name = "horario_saida")
+    private String horarioSaida;
+
+    @Column(name = "observacoes")
+    private String observacoes;
+
+    @Column(name = "ativa")
+    private boolean ativa = true;
+
+    // Construtor para criação de viagem
+    public Viagem(String nome, LocalDate dataViagem, String motorista, int quantidadeVagas,
+                  String origem, String destino, String horarioSaida, String observacoes) {
+        this.nome = nome;
+        this.dataViagem = dataViagem;
+        this.motorista = motorista;
+        this.quantidadeVagas = quantidadeVagas;
+        this.origem = origem;
+        this.destino = destino;
+        this.horarioSaida = horarioSaida;
+        this.observacoes = observacoes;
+        this.ativa = true;
+    }
 }
+
