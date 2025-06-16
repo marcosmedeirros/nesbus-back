@@ -1,0 +1,15 @@
+# Ignorar diretórios de build e arquivos desnecessários
+target/
+.git/
+.idea/
+*.iml
+*.log
+.DS_Store
+
+# Ignorar arquivos temporários do Windows
+Thumbs.db
+ehthumbs.db
+
+# Ignorar configurações específicas de IDE/editor
+.vscode/
+*.code-workspace
