@@ -2,6 +2,7 @@
 FROM eclipse-temurin:17 AS builder
 WORKDIR /app
 COPY . .
+RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Etapa 2: Imagem final para execução
